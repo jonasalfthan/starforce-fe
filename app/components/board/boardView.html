@@ -1,0 +1,93 @@
+<let-the-stars-fly-freely-directive flying-stars="flyingStars" attach-to-other-container="starcontainer"></let-the-stars-fly-freely-directive>
+<div class="row boardbody">
+    <!-- Lefte columne of page -->
+    <div class="col-xs-7 col-md-offset-2 col-md-6 col-lg-offset-2 col-lg-6">
+        <button class="btn" ng-click="isVisible.adminField= !isVisible.adminField">user admin</button>
+        <hr>
+        <div ng-show="isVisible.adminField">
+            <form>
+                <div class="input-group spacious">
+                    <span class="input-group-addon">N</span>
+                    <input ng-model="userInEdit.name" type="text" class="form-control" placeholder="Name">
+                </div>
+                <div class="input-group spacious">
+                    <span class="input-group-addon">P</span>
+                    <input ng-model="userInEdit.picturelink" type="text" class="form-control" placeholder="Picture Link">
+                </div>
+                <div class="centered">
+                    <button ng-click="createUser(userInEdit)" type="button" class="btn btn-success">Create New User</button>
+
+                    <!-- Only show button when a user has been loaded which can be deleted ( some one without stars ) -->
+                    <button ng-click="deleteUser(userInEdit)" type="button" class="btn btn-danger"
+                            ng-show="isVisible.deleteUserButton">
+                        Delete User
+                    </button>
+                    <button ng-show="isVisible.saveUserButton" ng-click="saveUser(userInEdit)" type="button" class="btn btn-primary">Save User</button>
+                </div>
+            </form>
+        </div>
+
+        <div ng-class-odd="'panel-info'" ng-class-even="'panel-success'" class="panel panel panel-margin"
+             ng-repeat="user in (board.users | orderBy:'-goldengives.length')">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <!--Adding a name class make identifying the field easier from protractor-->
+                    <strong class="name">#{{$index + 1}} - {{user.name}}</strong>
+                    <a class="pull-right" ng-click="editUser(user)">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a href="" class="thumbnail">
+                            <img class="profilepic" ng-src="{{user.picturelink}}"/>
+                        </a>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="dropzone media" data-drop="true"
+                             data-jqyoui-options="{accept:'.btn-draggable', hoverClass: 'dropzone-hover', activeClass: 'dropzone-activate'}"
+                             ng-model='user.goldengives'
+                             jqyoui-droppable="{multiple:true, onOver:'overCallback', onDrop:'dropCallback(user)'}">
+                            <!-- We could also add star directly to our model using: ng-model='user.goldengives'-->
+
+                            <div ng-repeat="item in user.goldengives"
+                                  class="pull-left col-xs-3" data-toggle="tooltip" data-placement="top" title="{{item.from}}: '{{item.comment}}'"
+                                  style="padding:5px"
+                                  popover-trigger="mouseenter"
+                                  ng-show="item.from"
+                                  data-drag="false"
+                                  data-jqyoui-options="{revert: 'invalid'}"
+                                  jqyoui-draggable="{index:{{$index}}}">
+
+
+                                <img class="media-object mini-star" ng-src="./assets/images/gold-star-small.png" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-5 col-md-offset-1 col-md-3 col-lg-offset-1 col-lg-3 ">
+        <div class="fixed">
+            <div class="container form-inline">
+                <div data-drop="false" ng-model='starInEdit'>
+                    <div class="btn-draggable starcontainer ontop" data-drag="true"
+                         data-jqyoui-options="{revert: 'invalid', cursor: 'rosshair', cursorAt: {top: 100, left: 80 }}"
+                         ng-model="starInEdit"
+                         jqyoui-draggable="{placeholder:true,animate:true}">
+                        <img src="assets/images/gold-star-drag.png" alt="Smiley face" width="100%">
+                        <div class="input-group fromfield">
+                            <input ng-model="starInEdit.from" type="text" class="form-control half-transparent" placeholder="From">
+                        </div>
+                        <div class="input-group commentfield">
+                            <textarea ng-model="starInEdit.comment" rows="2" class="form-control half-transparent" placeholder="Comment"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

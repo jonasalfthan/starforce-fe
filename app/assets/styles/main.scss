@@ -1,0 +1,161 @@
+@import 'vars';
+@import 'typography';
+
+@import '../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+
+@import '../../shared/3dGadgets/letTheStarsFly';
+
+// All bower component .css files are copied into .scss since .css are not automatically loaded.
+// possible since css is a subset of scss. For the copying the oneliner inside "dirtyhack.txt" is used
+@import '../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+@import '../../../bower_components/titip/dist/css/titip';
+
+/* Import the fonts */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: font-url('../../../bower_components/bootstrap-sass/assets/fonts/glyphicons-halflings-regular.eot');
+  src: font-url('../../../bower_components/bootstrap-sass/assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+  font-url('../../../bower_components/bootstrap-sass/assets/fonts/glyphicons-halflings-regular.woff') format('woff'),
+  font-url('../../../bower_components/bootstrap-sass/assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+  font-url('../../../bower_components/bootstrap-sass/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+a[ng-click]{
+  cursor: pointer;
+}
+
+
+#starcontainer{
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  overflow: hidden;
+}
+
+
+.animate-all-changes{
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.large-font {
+  font-size: 200%;
+}
+
+.normal-font {
+  font-size: 110%;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  color: $font-color--dark;
+ // background-color: $background--light;
+  padding: $full-space;
+  background-color: #FFFFFF;
+  height:100%;
+
+  background: url('../images/background-default.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+html {
+  height: 100%;
+}
+
+/* board view fixes */
+.add-distance{
+  margin-top:10px;
+}
+
+.add-distance-50{
+  margin-top:50px;
+}
+
+.full-width{
+  width:100%;
+}
+
+div.centered{
+  text-align:center;
+}
+
+.not-on-top{
+  z-index: -1;
+}
+
+div.panel-margin{
+  margin:2px;
+}
+
+.caption-background{
+  background-color:rgba(0,0,0,0.2);
+}
+
+.dropzone {
+  min-height: 100px !important;
+}
+
+
+div.starcontainer{
+  margin-top:50px;
+  position:relative;
+  width:100%;
+  max-width:200px;
+}
+
+div.starcontainer div.input-group.fromfield{
+  position:absolute;
+  top:100px;
+  width:100%;
+}
+
+div.starcontainer div.input-group.commentfield{
+  position:absolute;
+  top:150px;
+  width:100%;
+}
+
+.half-transparent{
+  background-color:rgba(255,255,255,0.8);
+}
+
+.fixed{
+  position:fixed;
+  top:10%;
+}
+
+.color2{
+  background-color:rgba(237,203,90,0.2);
+
+}
+
+.dropzone-hover{
+  border: 1px solid rgba(237,203,90,0.75);
+}
+
+.dropzone-activate{
+  box-shadow: 0px 0px 20px rgba(237,203,90,0.75);
+
+}
+
+.mini-star{
+  width:100%;
+}
+
+img.profilepic{
+  width:100%;
+}
+
+.ontop{
+  z-index:10;
+  position:relative;
+
+}

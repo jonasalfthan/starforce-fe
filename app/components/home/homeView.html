@@ -1,0 +1,44 @@
+<!-- put here since it requires inputs on what comments to show -->
+<let-the-stars-fly-freely-directive flying-stars="flyingStars" attach-to-other-container="starcontainer"></let-the-stars-fly-freely-directive>
+
+<div class="row">
+    comics placeholder
+</div>
+
+<div class="row">
+    <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
+        <div class="ontop">
+            <div ng-show="!createNewBoardForm" class="input-group input-group-lg">
+                <input ng-model="boardname" type="text" class="form-control" placeholder="enter boardname">
+				    <span class="input-group-btn">
+				      <button class="btn btn-default" type="button" ng-click="goClicked(boardname)">Go</button>
+				    </span>
+            </div>
+
+            <div ng-if="createNewBoardForm">
+                <div class="alert alert-info alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>There is no such board right now.</strong><br/>However, in only a matter of seconds you can have created one.
+                </div>
+
+                <form>
+                    <div class="form-group">
+                        <label for="input_boardnameinput">Boardname</label>
+                        <input ng-model="board.name" type="text" class="form-control" id="input_boardnameinput" placeholder="name" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="input_backgroundimageinput">Background Image</label>
+                        <input ng-model="board.backgroundimage" type="text" class="form-control" id="input_backgroundimageinput" placeholder="background image">
+                    </div>
+                    <div class="form-group">
+                        <label for="input_defaultprofileimageinput">Default Profile Image</label>
+                        <input ng-model="board.defaultprofileimage" type="text" class="form-control" id="input_defaultprofileimageinput" placeholder="profile image">
+                    </div>
+
+                    <button ng-click="newBoardClick(board)" type="button" class="btn btn-default btn-lg">Create Board and Go</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+// the stars need a starcontainer
+
+
+
+.element {
+    width: 200px;
+    height: 191px;
+    /*box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+    border: 1px solid rgba(127,255,255,0.25);*/
+    text-align: center;
+    cursor: default;
+    background-image:url('../images/gold-star-small.png');
+}
+
+/*
+.element:hover {
+  background-color: #FFFFFF;
+ box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+ border: 2px solid rgba(127,255,255,0.75);
+}*/
+
+.element .number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: rgba(127,255,255,0.75);
+}
+
+.element .symbol {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgba(40,40,40,0.75);
+    /*
+      -webkit-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+      -moz-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+      -o-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+      -ms-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+      filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95)); */
+}
+
+.element .details {
+    position: absolute;
+    bottom: 15px;
+    left: 0px;
+    right: 0px;
+    font-size: 12px;
+    color: rgba(127,255,255,0.75);
+}

@@ -1,0 +1,5 @@
+#make sure you know why this is needed before using it. This project imports CSS through SASS which I had problems with. 
+#Since css is a subset of scss it's ok to rename (or copy as in this case) all css:es into scss:es so they can be imported easier.
+
+
+# cd bower_components && (for i in $(find . | grep .css$ | grep -v scss | sed 's/\.css//'); do cp $i.css $i.scss; done)

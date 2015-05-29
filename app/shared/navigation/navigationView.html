@@ -1,0 +1,33 @@
+<div class="container-fluid not-on-top">
+    <div class="navbar navbar-default navbar-static-top" style="background-color:transparent">
+        <div class="navbar-header">
+            <!--button type="button" class="navbar-toggle" ng-init="menuCollapsed = true" ng-click="menuCollapsed = ! menuCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button-->
+            <div class="navbar-brand">
+                <a href ui-sref="Home">
+                    <span class="large-font animate-all-changes" set-class-when-below="normal-font">
+                        star-force.se <small>2.0</small>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" collapse="menuCollapsed">
+            <ul class="nav navbar-nav navbar-right">
+                <li ui-sref-active="active">
+                    <a ng-click="navigateToJonasBoard()">
+                        <span class="badge">new</span>Give me a star!
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ng-click="navigateToJonasBoard()">
+                        Github
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

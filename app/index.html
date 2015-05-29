@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+      <base href="/">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title ng-bind="pageTitle"></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width">
+
+      <link rel="stylesheet" href="assets/css/main.css">
+
+  </head>
+  <body ng-controller="MainCtrl" back-img-watcher>
+
+      <navigation-pane></navigation-pane>
+
+      <!-- not the nicest. A bit hacky so the floating stars have a access point. -->
+      <div id="starcontainer"></div>
+
+      <!-- all pages will have the same basic look. Ok for now. -->
+      <div ui-view></div>
+
+      <!--script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script-->
+      <script src="js/main.js"></script>
+  </body>
+</html>
