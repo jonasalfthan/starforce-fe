@@ -13,7 +13,7 @@ The project is built using using: angularjs-gulp-browserify-boilerplate as base.
 
 I can recommend this boilerplate: it's based on https://github.com/greypants/gulp-starter and fitted my needs very well with only minor structural modifications  
 
-- Since star-force was an existing project I decided to stick to bower for third party web libs and using debowerify to enable the use of bower components in browserify client javascript projects. 
+- Since star-force was an existing project I decided to stick to bower for third party web libs and using debowerify to simplify the use of bower components with browserify. 
 - I consider the project structure presented here: https://scotch.io/tutorials/angularjs-best-practices-directory-structure better than the structure of the boilerplate so I use that one.
 
 
