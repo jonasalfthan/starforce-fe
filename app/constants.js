@@ -1,7 +1,7 @@
 'use strict';
 
 var AppSettings = {
-    appTitle: 'Example Application',
+    appTitle: 'star-force.se',
     apiUrl: '/api/v1',
     hostAddress: 'http://star-force.se/api'
 
