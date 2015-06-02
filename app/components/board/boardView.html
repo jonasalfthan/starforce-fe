@@ -1,7 +1,18 @@
 <let-the-stars-fly-freely-directive flying-stars="flyingStars" attach-to-other-container="starcontainer"></let-the-stars-fly-freely-directive>
 <div class="row boardbody">
+
+    <div class="visible-xs-block">
+
+        <div class="alert alert-info" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            This site is not yet very adjusted to small devices.
+            With your device you can not distribute stars.
+        </div>
+    </div>
+
     <!-- Lefte columne of page -->
-    <div class="col-xs-7 col-md-offset-2 col-md-6 col-lg-offset-2 col-lg-6">
+    <!-- small devives only see this part -->
+    <div class="col-xs-12 col-sm-7 col-md-offset-2 col-md-6 col-lg-offset-2 col-lg-6">
         <button class="btn" ng-click="isVisible.adminField= !isVisible.adminField">user admin</button>
         <hr>
         <div ng-show="isVisible.adminField">
@@ -50,16 +61,15 @@
                              data-jqyoui-options="{accept:'.btn-draggable', hoverClass: 'dropzone-hover', activeClass: 'dropzone-activate'}"
                              ng-model='user.goldengives'
                              jqyoui-droppable="{multiple:true, onOver:'overCallback', onDrop:'dropCallback(user)'}">
-                            <!-- We could also add star directly to our model using: ng-model='user.goldengives'-->
 
                             <div ng-repeat="item in user.goldengives"
-                                  class="pull-left col-xs-3" data-toggle="tooltip" data-placement="top" title="{{item.from}}: '{{item.comment}}'"
-                                  style="padding:5px"
-                                  popover-trigger="mouseenter"
-                                  ng-show="item.from"
-                                  data-drag="false"
-                                  data-jqyoui-options="{revert: 'invalid'}"
-                                  jqyoui-draggable="{index:{{$index}}}">
+                                 class="pull-left col-xs-3" data-toggle="tooltip" data-placement="top" title="{{item.from}}: '{{item.comment}}'"
+                                 style="padding:5px"
+                                 popover-trigger="mouseenter"
+                                 ng-show="item.from"
+                                 data-drag="false"
+                                 data-jqyoui-options="{revert: 'invalid'}"
+                                 jqyoui-draggable="{index:{{$index}}}">
 
 
                                 <img class="media-object mini-star" ng-src="./assets/images/gold-star-small.png" alt="...">
@@ -70,7 +80,9 @@
             </div>
         </div>
     </div>
-    <div class="col-xs-5 col-md-offset-1 col-md-3 col-lg-offset-1 col-lg-3 ">
+
+    <!-- the dragable star is not even visible on small devices -->
+    <div class="hidden-xs col-sm-5 col-md-offset-1 col-md-3 col-lg-offset-1 col-lg-3 ">
         <div class="fixed">
             <div class="container form-inline">
                 <div data-drop="false" ng-model='starInEdit'>
