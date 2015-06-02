@@ -1,12 +1,20 @@
 <!-- put here since it requires inputs on what comments to show -->
 <let-the-stars-fly-freely-directive flying-stars="flyingStars" attach-to-other-container="starcontainer"></let-the-stars-fly-freely-directive>
 
-<div class="row">
-    comics placeholder
-</div>
 
-<div class="row">
-    <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
+<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6" style="padding: 0 5px">
+            <img img-pre-load src="assets/images/1.png" width="100%">
+        </div>
+        <div class="col-xs-6 col-sm-6" style="padding: 0 5px">
+            <img img-pre-load src="assets/images/2.png" width="100%">
+        </div>
+    </div>
+
+    <!-- log in to board and create new board fields -->
+
+    <div class="row">
         <div class="ontop">
             <div ng-show="!createNewBoardForm" class="input-group input-group-lg">
                 <input ng-model="boardname" type="text" class="form-control" placeholder="enter boardname">
@@ -39,6 +47,16 @@
 
                 </form>
             </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6" style="padding: 0 5px">
+            <img img-pre-load src="assets/images/3.png" width="100%">
+        </div>
+        <div class="col-xs-6 col-sm-6" style="padding: 0 5px">
+            <img img-pre-load src="assets/images/4.png" width="100%">
         </div>
     </div>
 </div>
