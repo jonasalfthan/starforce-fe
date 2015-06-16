@@ -9,18 +9,13 @@ window.$ = require('jquery');
 /**
  * @ngInject
  */
-function letTheStarsFlyDirective(){
+function letTheStarsFlyFreelyDirective(){
 
-    //main star container
-    var table;
     var minWidthForStars = 10;
-
     var camera, scene, renderer;
     var mainDomArea;
 
-    var objects = [];
-    var that = this;
-
+    var starObjects = [];
 
     function init(appendToThis, starArray) {
         mainDomArea = appendToThis;
@@ -34,24 +29,23 @@ function letTheStarsFlyDirective(){
         camera = new THREE.PerspectiveCamera( 25, mainDomArea.offsetWidth/ mainDomArea.offsetHeight, 1, 5000 );
         camera.position.z = 1500;
         scene = new THREE.Scene();
-        table = starArray;
 
-
-        for ( var i = 0; i < table.length; i += 1 ) {
+        // Creating the stars. Each star is a div.
+        for ( var i = 0; i < starArray.length; i += 1 ) {
             var element = document.createElement( 'div' );
             element.className = 'element';
             var symbol = document.createElement( 'div' );
             symbol.className = 'symbol';
-            symbol.textContent = table[i].comment;
+            symbol.textContent = starArray[i].comment;
             element.appendChild(symbol);
 
-            var object = new THREE.CSS3DObject(element);
-            object.position.x = Math.random() * 4000 - 2000;
-            object.position.y = Math.random() * 4000 - 2000;
-            object.position.z = Math.random() * 4000 - 2000;
-            scene.add( object );
+            var starObject = new THREE.CSS3DObject(element);
+            starObject.position.x = Math.random() * 4000 - 2000;
+            starObject.position.y = Math.random() * 4000 - 2000;
+            starObject.position.z = Math.random() * 4000 - 2000;
+            scene.add(starObject);
 
-            objects.push( object );
+            starObjects.push(starObject);
         }
 
         renderer = new THREE.CSS3DRenderer();
@@ -60,7 +54,6 @@ function letTheStarsFlyDirective(){
 
         mainDomArea.appendChild( renderer.domElement );
 
-        /*once to "have a small enought screen" the stars will not come back on resize*/
         animate();
         goToChaosTarget();
 
@@ -72,20 +65,23 @@ function letTheStarsFlyDirective(){
 
         TWEEN.removeAll();
 
-        for ( var i = 0; i < objects.length; i ++ ) {
-            var object = objects[ i ];
+        for ( var i = 0; i < starObjects.length; i ++ ) {
+            var starObject = starObjects[ i ];
 
-            new TWEEN.Tween( object.position )
+            new TWEEN.Tween( starObject.position )
                 .to( { x: Math.random() * 4000 - 2000, y: Math.random() * 800 - 400, z: Math.random() * 4000 - 2000 }, Math.random() * 4000 + 4000 )
                 .easing( TWEEN.Easing.Exponential.InOut )
                 .start();
 
-            new TWEEN.Tween( object.rotation )
+            new TWEEN.Tween( starObject.rotation )
                 .to( { x: Math.random(), y: Math.random(), z: Math.random() }, Math.random() * 2000 + 2000 )
                 .easing( TWEEN.Easing.Exponential.InOut )
                 .start();
         }
-        new TWEEN.Tween(that)
+
+        // follow one "fake" star. When it has completed then go to
+        // chaos target again for all others
+        new TWEEN.Tween()
             .to( {}, 4000 * 2 )
             .onUpdate( render )
             .onComplete(goToChaosTarget)
@@ -93,7 +89,6 @@ function letTheStarsFlyDirective(){
     }
 
     function onResizeCallback() {
-        console.log("resizing");
         camera.aspect = mainDomArea.offsetWidth / mainDomArea.offsetHeight;
         camera.updateProjectionMatrix();
         renderer.setSize( mainDomArea.offsetWidth, mainDomArea.offsetHeight );
@@ -135,4 +130,4 @@ function letTheStarsFlyDirective(){
     };
 }
 
-myModule.directive('letTheStarsFlyFreelyDirective', letTheStarsFlyDirective);
+myModule.directive('letTheStarsFlyFreely', letTheStarsFlyFreelyDirective);

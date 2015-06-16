@@ -1,4 +1,6 @@
 'use strict';
+
+
 /*global angular*/
 
 //I decided to user debowerify for all dependencies and had problems requiring angular to variable.
