@@ -3,8 +3,6 @@ var myModule = require('./_index');
 /*global THREE*/
 /*global TWEEN*/
 
-window.$ = require('jquery');
-
 
 /**
  * @ngInject
